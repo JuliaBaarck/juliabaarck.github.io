@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 240" role="img"
+     aria-label="Placeholder: figure to be added">
+  <rect width="400" height="240" fill="#f5f7fa"/>
+  <rect x="1" y="1" width="398" height="238" fill="none"
+        stroke="#c3cede" stroke-width="2" stroke-dasharray="7 6"/>
+  <g stroke="#1f3b63" fill="none" opacity="0.32">
+    <line x1="66" y1="38" x2="66" y2="168" stroke-width="2"/>
+    <line x1="66" y1="168" x2="338" y2="168" stroke-width="2"/>
+    <polyline points="90,148 152,130 214,136 276,88 322,64" stroke-width="3"
+              stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <g fill="#1f3b63" opacity="0.32">
+    <circle cx="90" cy="148" r="5"/>
+    <circle cx="152" cy="130" r="5"/>
+    <circle cx="214" cy="136" r="5"/>
+    <circle cx="276" cy="88" r="5"/>
+    <circle cx="322" cy="64" r="5"/>
+  </g>
+  <text x="200" y="208" text-anchor="middle" fill="#6b7a90"
+        font-family="Georgia, 'Times New Roman', serif" font-size="16"
+        font-style="italic">Figure to be added</text>
+</svg>
