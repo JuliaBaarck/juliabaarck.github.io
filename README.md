@@ -21,23 +21,30 @@ then open <http://localhost:8000>.
 
 | What | Where |
 |---|---|
-| Home page (bio, contact, interests, job-market line) | `index.html` |
+| Home page (bio, contact, interests) | `index.html` |
 | Papers, abstracts, links | `research.html` |
+| Supervision and teaching | `teaching.html` |
 | CV page | `cv.html` |
 | Colours, fonts, spacing | `assets/css/style.css` |
 
-The header and footer are repeated in each of the three HTML files. If you change the
-navigation, change it in all three.
+The header and footer are repeated in each of the four HTML files. If you change the
+navigation, change it in all four.
+
+### Hiding a paper temporarily
+
+Wrap the whole `<article class="paper">…</article>` in an HTML comment. The secondary-track
+paper with Michaela Paffenholz is currently hidden this way in `research.html` — its text and
+figure are intact, so removing the two comment lines brings it straight back.
 
 ### Adding your references
 
 `index.html` has a **References** block near the bottom, commented out. Fill in the names and
 delete the two comment lines around it (`<!-- ... -->`).
 
-### Adding a page (e.g. Teaching)
+### Adding a page
 
-Copy `cv.html`, replace the `<main>` content, and add one line to the `<nav>` in each of the
-four files.
+Copy `teaching.html`, replace the `<main>` content and the `<head>` metadata, and add one line
+to the `<nav>` in every page.
 
 ## Updating the CV
 
@@ -82,8 +89,9 @@ new entry at until its figure exists.
 ## Links
 
 External links all carry `target="_blank" rel="noopener"` so they open in a new tab and leave
-this site open behind them. Keep that on any link you add. Each paper deliberately shows a
-single link — the CESifo working paper, or the journal article once published.
+this site open behind them. Keep that on any link you add. Working papers link to the CESifo
+working paper; published papers link to the journal article plus a free-to-read route (the
+author PDF or the PubMed Central version), since the journal links are paywalled.
 
 ## The job market paper draft is not published
 
@@ -97,7 +105,7 @@ in `tools/build_assets.py`.
 ## Layout
 
 ```
-index.html  research.html  cv.html   pages
+index.html  research.html  teaching.html  cv.html   pages
 assets/css/style.css                 the only stylesheet
 assets/img/                          headshot + favicon
 assets/research/                     web-sized figures (generated)

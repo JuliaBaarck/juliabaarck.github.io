@@ -321,7 +321,8 @@ main { padding: 40px 0 8px; }
 }
 .fact-list li:last-child { border-bottom: 0; }
 .fact-list .when {
-  flex: 0 0 108px;
+  /* Wide enough for the longest entry ("2016, 2019, 2020") to stay on one line. */
+  flex: 0 0 136px;
   color: var(--ink-faint);
   font-size: 0.92rem;
   font-variant-numeric: tabular-nums;
