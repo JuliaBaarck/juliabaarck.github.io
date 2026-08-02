@@ -30,11 +30,27 @@ then open <http://localhost:8000>.
 The header and footer are repeated in each of the four HTML files. If you change the
 navigation, change it in all four.
 
-### Hiding a paper temporarily
+### Hiding part of a paper
 
-Wrap the whole `<article class="paper">…</article>` in an HTML comment. The secondary-track
-paper with Michaela Paffenholz is currently hidden this way in `research.html` — its text and
-figure are intact, so removing the two comment lines brings it straight back.
+The secondary-track paper with Michaela Paffenholz shows only its title and coauthor: the
+abstract and figure sit inside an HTML comment in `research.html`. To bring them back, delete
+the two comment lines and change that entry's class from `paper paper--nofigure` back to
+`paper`. To hide a whole entry, comment out its entire `<article>`.
+
+### Media coverage
+
+Press pickup goes in a `<p class="media">` (or `<span class="media">` inside the policy list)
+directly after a paper's links:
+
+```html
+<p class="media">
+  <span class="media-label">Media</span>
+  <a href="https://…" target="_blank" rel="noopener">Outlet name</a>
+</p>
+```
+
+The mobility paper has a commented-out slot ready for the *Die Zeit* piece — paste the URL in
+and delete the comment markers.
 
 ### Adding your references
 

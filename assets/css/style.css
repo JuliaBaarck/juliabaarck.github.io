@@ -411,6 +411,27 @@ main { padding: 40px 0 8px; }
   color: #fff;
 }
 
+/* Press pickup, listed under a paper's own links. Deliberately lighter than
+   .paper-links so the paper itself stays the primary call to action. */
+.media {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 14px;
+  margin: 12px 0 0;
+  font-size: 0.89rem;
+}
+.media-label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ink-faint);
+}
+.media a { color: var(--ink-soft); }
+.media a:hover { color: var(--crimson); }
+
+.compact-list .media { margin-top: 8px; }
+
 .paper-figure { margin: 0; }
 .paper-figure img {
   width: 100%;
