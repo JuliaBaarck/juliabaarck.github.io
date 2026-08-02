@@ -24,8 +24,8 @@
     <nav class="site-nav" aria-label="Main">
       <a href="index.html">Home</a>
       <a href="research.html">Research</a>
-      <a href="teaching.html">Teaching</a>
       <a href="cv.html" aria-current="page">CV</a>
+      <a href="teaching.html">Teaching</a>
     </nav>
   </div>
 </header>
@@ -36,8 +36,11 @@
   <h1 class="page-title">Curriculum Vitae</h1>
 
   <div class="cv-actions">
-    <a class="button button--solid" href="files/Baarck_CV.pdf" download>Download CV (PDF)</a>
-    <a class="button" href="files/Baarck_CV.pdf">Open in browser</a>
+    <!-- No `download` attribute: that would force a save to disk, and nothing
+         would open. Without it the browser shows the PDF in the new tab, where
+         the reader can save it themselves, and this site stays open behind. -->
+    <a class="button button--solid" href="files/Baarck_CV.pdf"
+       target="_blank" rel="noopener">Download CV (PDF)</a>
     <span class="updated">Last updated: August 2026</span>
   </div>
 
@@ -47,11 +50,11 @@
   <div class="cv-pages">
     <!-- Each page links to the full-size image so it can be opened and zoomed
          on a phone, where the inline rendering is necessarily small. -->
-    <a href="assets/cv/cv-page-1.png">
+    <a href="assets/cv/cv-page-1.png" target="_blank" rel="noopener">
       <img src="assets/cv/cv-page-1.png" width="1240" height="1753"
            alt="Curriculum vitae of Julia Baarck, page 1: education, working papers, work in progress, publications and policy work">
     </a>
-    <a href="assets/cv/cv-page-2.png">
+    <a href="assets/cv/cv-page-2.png" target="_blank" rel="noopener">
       <img src="assets/cv/cv-page-2.png" width="1240" height="1753" loading="lazy"
            alt="Curriculum vitae of Julia Baarck, page 2: presentations, research visits, scholarships, teaching, work experience and languages">
     </a>
