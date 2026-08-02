@@ -197,20 +197,6 @@ main { padding: 40px 0 8px; }
   margin: 0;
 }
 
-/* Job-market flag: the one place crimson appears at full strength. */
-.jm-flag {
-  display: inline-block;
-  margin-top: 20px;
-  padding: 7px 20px;
-  border: 1px solid rgba(164, 36, 59, 0.35);
-  border-radius: 999px;
-  background: rgba(164, 36, 59, 0.05);
-  color: var(--crimson);
-  font-size: 0.95rem;
-  font-weight: 600;
-  letter-spacing: 0.015em;
-}
-
 /* Photo left, text right -- collapses to a single column on narrow screens. */
 .intro {
   display: grid;
@@ -244,11 +230,15 @@ main { padding: 40px 0 8px; }
   margin-bottom: 1px;
 }
 
-.button-stack {
-  margin-top: 22px;
+/* Plain profile links under the address -- deliberately not buttons, so they
+   don't compete with the navigation at the top of the page. */
+.profile-links {
   display: flex;
-  flex-direction: column;
-  gap: 10px;
+  flex-wrap: wrap;
+  gap: 4px 14px;
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid var(--rule);
 }
 
 .button {
@@ -300,14 +290,6 @@ main { padding: 40px 0 8px; }
   padding: 18px 22px;
   border-radius: 0 3px 3px 0;
 }
-.jmp-card .eyebrow {
-  display: block;
-  font-size: 0.72rem;
-  text-transform: uppercase;
-  letter-spacing: 0.11em;
-  color: var(--ink-faint);
-  margin-bottom: 5px;
-}
 .jmp-card .title {
   font-family: var(--serif);
   font-size: 1.13rem;
@@ -315,6 +297,12 @@ main { padding: 40px 0 8px; }
   color: var(--navy-dark);
   display: block;
   line-height: 1.35;
+  margin-bottom: 10px;
+}
+.jmp-card p {
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+  margin: 0;
 }
 
 .fact-list {
@@ -389,14 +377,11 @@ main { padding: 40px 0 8px; }
   margin-right: 8px;
   vertical-align: 1px;
 }
-.badge--jmp { background: rgba(164, 36, 59, 0.09); color: var(--crimson); }
-
 .abstract {
   font-size: 0.97rem;
   color: var(--ink-soft);
   margin-bottom: 14px;
 }
-.abstract--pending { font-style: italic; color: var(--ink-faint); }
 
 .paper-links {
   display: flex;

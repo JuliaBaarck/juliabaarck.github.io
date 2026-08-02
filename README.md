@@ -66,12 +66,25 @@ PATH, which you already have via MiKTeX.
 
 | Entry on the research page | Source |
 |---|---|
+| Service Shapes Careers (JMP) | Fig. 3, auto-cropped from the draft PDF in `Papers/JMP_Baarck/` |
 | Rising Inequality, Declining Mobility | `Papers/Baarck_Bode_Peichl_RRS_over_time_baseline.pdf` |
 | Fairness Views and Policy Preferences | the four `Papers/Baarck_Dolls_Windsteiger/t2_policy_*.png`, composited into a 2×2 grid |
 | Secondary-Track Choices | `Papers/Baarck_Paffenholz_trend_gym_abi_late.png` |
 | Learning Income Levels (Applied Geography) | Fig. 2 of the open-access article |
 | Loneliness in Europe (Health Policy) | Fig. 2 of the open-access article |
-| Job market paper, remaining work in progress | `assets/research/figure-placeholder.svg` |
+| Remaining work in progress | `assets/research/figure-placeholder.svg` |
+
+An entry with no figure at all can use `<article class="paper paper--nofigure">`, which drops
+the second column so the text runs full width.
+
+## The job market paper draft is not published
+
+`.gitignore` excludes `Papers/JMP_Baarck/*.pdf`. The draft is marked *preliminary and
+incomplete — please do not circulate*, and anything committed to this repository is publicly
+downloadable even when no page links to it. Keep the PDF in that folder locally: the build
+script re-crops Figure 3 from it, and commits only the extracted figure
+(`service-shapes-careers-fig3.png`). If the draft is restructured, update `JMP_FIGURE_PAGE`
+in `tools/build_assets.py`.
 
 ## Layout
 

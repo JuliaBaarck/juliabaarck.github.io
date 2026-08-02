@@ -34,6 +34,8 @@ TRIM_THRESHOLD = 247
 TRIM_PADDING = 12
 # Research figures render in a ~360px column, so 900px covers 2x displays.
 FIGURE_WIDTH = 900
+# Page of the JMP draft holding Figure 3; update if the draft is restructured.
+JMP_FIGURE_PAGE = 9
 
 
 def log(msg: str) -> None:
@@ -84,6 +86,35 @@ def save_png(im: Image.Image, dest: Path, colors: int = 128) -> None:
     quantised = im.quantize(colors=colors, method=Image.MEDIANCUT, dither=Image.NONE)
     quantised.save(dest, format="PNG", optimize=True)
     log(f"  -> {dest.relative_to(ROOT)}  ({dest.stat().st_size // 1024} KB, {im.width}x{im.height})")
+
+
+def crop_reddish_figure(page: Image.Image) -> Image.Image | None:
+    """Isolate a crimson-on-white plot from an otherwise black-text page.
+
+    The JMP figures are the only reddish content on their page, so the bounding
+    box of "red clearly dominates green and blue" pixels finds the plot area.
+    Padding then takes in the panel titles, the y-axis label and the x-axis label,
+    none of which are red.
+    """
+    rgb = page.convert("RGB")
+    w, h = rgb.size
+    px = rgb.load()
+    rows, cols = [], set()
+    for y in range(h):
+        hits = [x for x in range(0, w, 2)
+                if px[x, y][0] - max(px[x, y][1], px[x, y][2]) > 14]
+        if len(hits) > 20:          # a stray red hyperlink never spans this many
+            rows.append(y)
+            cols.update(hits)
+    if not rows:
+        return None
+    box = (
+        max(0, min(cols) - 120),    # room for the rotated y-axis label
+        max(0, min(rows) - 55),     # room for the panel titles
+        min(w, max(cols) + 30),
+        min(h, max(rows) + 75),     # room for tick labels and "Age"
+    )
+    return rgb.crop(box)
 
 
 def save_jpeg(im: Image.Image, dest: Path, quality: int = 86) -> None:
@@ -208,6 +239,31 @@ def build_secondary_track_figure() -> None:
     save_png(im, RESEARCH_OUT / "secondary-track-choices.png")
 
 
+def build_jmp_figure() -> None:
+    """Figure 3 of the job market paper (effects by age, men vs. women).
+
+    Preferred source is the draft PDF, which is deliberately git-ignored -- it is
+    marked "do not circulate", so it must never be committed to this public repo.
+    When it is absent (a fresh clone), fall back to the extracted PNG.
+    """
+    staged = PAPERS / "JMP_Baarck" / "service-shapes-careers-fig3.png"
+    dest = RESEARCH_OUT / "service-shapes-careers.png"
+
+    pdfs = sorted((PAPERS / "JMP_Baarck").glob("*.pdf")) if (PAPERS / "JMP_Baarck").is_dir() else []
+    if pdfs:
+        page = pdf_to_image(pdfs[0], dpi=150, page=JMP_FIGURE_PAGE)
+        if page is not None:
+            cropped = crop_reddish_figure(page)
+            if cropped is not None:
+                cropped.save(staged, format="PNG", optimize=True)
+                log(f"  re-extracted from {pdfs[0].name} p.{JMP_FIGURE_PAGE}")
+
+    if not staged.exists():
+        log("  !! no JMP figure source, skipping")
+        return
+    save_png(fit_width(flatten(Image.open(staged)), FIGURE_WIDTH), dest)
+
+
 def build_spatial_income_figure() -> None:
     # Fig. 2 of the Applied Geography paper, cropped out of the open-access PDF
     # (paulhufe.net/pdfs/GTSBHWP_2023.pdf) and kept in Papers/ as the source.
@@ -253,6 +309,7 @@ def build_cv_pages() -> None:
 
 STEPS = [
     ("headshot", build_headshot),
+    ("figure: job market paper", build_jmp_figure),
     ("figure: rising inequality, declining mobility", build_mobility_figure),
     ("figure: fairness views (2x2 composite)", build_fairness_grid),
     ("figure: secondary-track choices", build_secondary_track_figure),
