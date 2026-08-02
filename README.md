@@ -69,13 +69,21 @@ PATH, which you already have via MiKTeX.
 | Service Shapes Careers (JMP) | Fig. 3, auto-cropped from the draft PDF in `Papers/JMP_Baarck/` |
 | Rising Inequality, Declining Mobility | `Papers/Baarck_Bode_Peichl_RRS_over_time_baseline.pdf` |
 | Fairness Views and Policy Preferences | the four `Papers/Baarck_Dolls_Windsteiger/t2_policy_*.png`, composited into a 2×2 grid |
+| Manager Preferences | `Papers/Baarck_Kosse_Peichl_Sunde_Wohlrabe/coefplot_linvest_cont_above10perc.jpg` |
 | Secondary-Track Choices | `Papers/Baarck_Paffenholz_trend_gym_abi_late.png` |
 | Learning Income Levels (Applied Geography) | Fig. 2 of the open-access article |
 | Loneliness in Europe (Health Policy) | Fig. 2 of the open-access article |
-| Remaining work in progress | `assets/research/figure-placeholder.svg` |
 
-An entry with no figure at all can use `<article class="paper paper--nofigure">`, which drops
-the second column so the text runs full width.
+Entries with no figure — currently the last two work-in-progress papers — use
+`<article class="paper paper--nofigure">`, which drops the second column so the text runs
+full width. `assets/research/figure-placeholder.svg` is kept as a stand-in you can point a
+new entry at until its figure exists.
+
+## Links
+
+External links all carry `target="_blank" rel="noopener"` so they open in a new tab and leave
+this site open behind them. Keep that on any link you add. Each paper deliberately shows a
+single link — the CESifo working paper, or the journal article once published.
 
 ## The job market paper draft is not published
 

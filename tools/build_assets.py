@@ -230,6 +230,15 @@ def build_fairness_grid() -> None:
     save_png(canvas, RESEARCH_OUT / "fairness-views-policy.png")
 
 
+def build_manager_preferences_figure() -> None:
+    src = PAPERS / "Baarck_Kosse_Peichl_Sunde_Wohlrabe" / "coefplot_linvest_cont_above10perc.jpg"
+    if not src.exists():
+        log("  !! source missing, skipping")
+        return
+    im = fit_width(trim_whitespace(flatten(Image.open(src)), padding=8), FIGURE_WIDTH)
+    save_png(im, RESEARCH_OUT / "manager-preferences.png")
+
+
 def build_secondary_track_figure() -> None:
     src = PAPERS / "Baarck_Paffenholz_trend_gym_abi_late.png"
     if not src.exists():
@@ -312,6 +321,7 @@ STEPS = [
     ("figure: job market paper", build_jmp_figure),
     ("figure: rising inequality, declining mobility", build_mobility_figure),
     ("figure: fairness views (2x2 composite)", build_fairness_grid),
+    ("figure: manager preferences", build_manager_preferences_figure),
     ("figure: secondary-track choices", build_secondary_track_figure),
     ("figure: spatial income inequality", build_spatial_income_figure),
     ("figure: loneliness in Europe", build_loneliness_figure),

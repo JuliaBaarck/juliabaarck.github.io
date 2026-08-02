@@ -298,7 +298,9 @@ main { padding: 40px 0 8px; }
   display: block;
   line-height: 1.35;
   margin-bottom: 10px;
+  text-decoration: none;
 }
+.jmp-card .title:hover { color: var(--crimson); text-decoration: underline; }
 .jmp-card p {
   font-size: 0.95rem;
   color: var(--ink-soft);
