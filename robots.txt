@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://juliabaarck.github.io/sitemap.xml
