@@ -197,6 +197,13 @@ main { padding: 40px 0 8px; }
   margin: 0;
 }
 
+.masthead .job-market {
+  margin: 12px 0 0;
+  font-size: 1.08rem;
+  color: var(--crimson);
+  font-weight: 600;
+}
+
 /* Photo left, text right -- collapses to a single column on narrow screens. */
 .intro {
   display: grid;
@@ -306,6 +313,7 @@ main { padding: 40px 0 8px; }
   color: var(--ink-soft);
   margin: 0;
 }
+.jmp-card p + p { margin-top: 0.7em; }
 
 .fact-list {
   list-style: none;
@@ -445,6 +453,20 @@ main { padding: 40px 0 8px; }
   margin-top: 8px;
   line-height: 1.45;
 }
+/* Multi-panel figures: a title over the whole figure, a label over each panel. */
+.paper-figure .figure-title {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+  margin: 0 0 8px;
+  line-height: 1.4;
+}
+.paper-figure .panel-label {
+  font-size: 0.8rem;
+  color: var(--ink-faint);
+  margin: 10px 0 4px;
+}
+.paper-figure .figure-title + .panel-label { margin-top: 0; }
 
 /* Policy work and other compact lists. */
 .compact-list { list-style: none; margin: 0; padding: 0; }
